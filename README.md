@@ -1,6 +1,6 @@
-# case-migracao-atendimento-whatsapp
 
-# 🏖️ Case: Migração de Plataforma de Atendimento WhatsApp
+
+#  📚 Case: Migração de Plataforma de Atendimento WhatsApp para empresa de aluguel de temporada em Recife - PE 🏖️
 
 > Caso real de migração de plataforma SaaS de atendimento WhatsApp 
 > para stack open-source self-hosted, com economia de 81% nos custos 
