@@ -185,7 +185,7 @@ brasileira proprietária. Apesar de funcional, o sistema apresentava:
 
 ## 👋 Sobre
 
-Projeto realizado por **Vanessa Rafaella**, estudante de Sistemas para
+Projeto realizado por **Vanessa Lima**, estudante de Sistemas para
 Internet, em 2026.
 
 Diagnóstico técnico, arquitetura, implementação e debug executados por mim,
@@ -198,7 +198,7 @@ a infraestrutura aqui descrita está em operação atendendo uma empresa de
 hospedagem, e cada um dos cases técnicos detalhados foi um problema encontrado
 e resolvido durante a implementação.
 
-**Contato:** [LinkedIn / e-mail]
+**Contato:** [www.linkedin.com/in/vanessa-lima-dev / vanessalimaunicap@gmail.com]
 
 ---
 
