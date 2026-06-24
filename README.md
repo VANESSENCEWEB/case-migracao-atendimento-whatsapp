@@ -19,7 +19,7 @@ anonimizados). É um trabalho **em andamento** — algumas fases estão concluí
 outras estão em execução ou planejadas.
 
 A documentação está organizada **por fases cronológicas** do projeto, e cada
-fase tem seu próprio diretório em [`docs/`](./docs) com README detalhado.
+fase tem seu próprio diretório com README detalhado.
 
 > 💡 Este não é um exercício acadêmico: a infraestrutura aqui descrita está
 > em operação atendendo uma empresa real, e cada decisão técnica tem
@@ -90,12 +90,12 @@ brasileira proprietária. Apesar de funcional, o sistema apresentava:
 
 | # | Fase | Status | Documentação |
 |---|------|--------|--------------|
-| 01 | Discovery & decisão técnica | ✅ Concluída | [docs/01-discovery/](./docs/01-discovery/) |
-| 02 | Infraestrutura (VPS + Docker + DNS) | ✅ Concluída | [docs/02-infraestrutura/](./docs/02-infraestrutura/) |
-| 03 | Deploy do Chatwoot | ✅ Concluída | [docs/03-chatwoot-deploy/](./docs/03-chatwoot-deploy/) |
-| 04 | Integração Meta WhatsApp Cloud API | ✅ Concluída | [docs/04-meta-cloud-api/](./docs/04-meta-cloud-api/) |
-| 05 | ⭐ Bug do "9" móvel brasileiro | ✅ Resolvido | [docs/05-bug-9-movel/](./docs/05-bug-9-movel/) |
-| 06 | ⭐ Recuperação de acesso 2FA | ✅ Resolvido | [docs/06-recuperacao-2fa/](./docs/06-recuperacao-2fa/) |
+| 01 | Discovery & decisão técnica | ✅ Concluída | [01-discovery/](./01-discovery/) |
+| 02 | Infraestrutura (VPS + Docker + DNS) | ✅ Concluída | [02-infraestrutura/](./02-infraestrutura/) |
+| 03 | Deploy do Chatwoot | ✅ Concluída | [03-chatwoot-deploy/](./03-chatwoot-deploy/) |
+| 04 | Integração Meta WhatsApp Cloud API | ✅ Concluída | [04-meta-cloud-api/](./04-meta-cloud-api/) |
+| 05 | ⭐ Bug do "9" móvel brasileiro | ✅ Resolvido | [05-bug-9-movel/](./05-bug-9-movel/) |
+| 06 | ⭐ Recuperação de acesso 2FA | ✅ Resolvido | [06-recuperacao-2fa/](./06-recuperacao-2fa/) |
 | 07 | Estruturação do atendimento | 🟡 Em andamento | _em construção_ |
 | 08 | Automações via n8n | 🔵 Planejada | _roadmap_ |
 | 09 | Migração final + descomissionamento | 🔵 Planejada | _roadmap_ |
@@ -128,7 +128,7 @@ brasileira proprietária. Apesar de funcional, o sistema apresentava:
 > a viabilidade técnica antes de comprometer 12 meses. Após a validação,
 > renovação no plano anual baixa o custo para ~R$43,99/mês (no plano mensal
 > avulso o custo é cerca de 2x maior). Justificativa detalhada em
-> [docs/02-infraestrutura/](./docs/02-infraestrutura/).
+> [02-infraestrutura/](./02-infraestrutura/).
 
 ---
 
@@ -195,8 +195,8 @@ produção foram responsabilidade minha.
 
 Este é o registro público de um trabalho real, não um exercício acadêmico:
 a infraestrutura aqui descrita está em operação atendendo uma empresa de
-hospedagem, e cada um dos cases técnicos detalhados em [`docs/`](./docs)
-foi um problema encontrado e resolvido durante a implementação.
+hospedagem, e cada um dos cases técnicos detalhados foi um problema encontrado
+e resolvido durante a implementação.
 
 **Contato:** [LinkedIn / e-mail]
 
