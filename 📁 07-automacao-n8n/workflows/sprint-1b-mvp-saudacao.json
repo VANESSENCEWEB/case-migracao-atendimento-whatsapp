@@ -1,0 +1,205 @@
+{
+  "name": "Sprint 1B - MVP Saudação (sem Code node)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chatwoot-mvp",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-chatwoot",
+      "name": "Webhook Chatwoot",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "webhookId": "chatwoot-mvp"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cond-event",
+              "leftValue": "={{ $json.body.event }}",
+              "rightValue": "message_created",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "cond-incoming",
+              "leftValue": "={{ $json.body.message_type }}",
+              "rightValue": "incoming",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-incoming",
+      "name": "Só mensagem do cliente",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "phone_raw",
+              "name": "phone_raw",
+              "value": "={{ $json.body.sender.phone_number }}",
+              "type": "string"
+            },
+            {
+              "id": "message",
+              "name": "message",
+              "value": "={{ $json.body.content }}",
+              "type": "string"
+            },
+            {
+              "id": "conversation_id",
+              "name": "conversation_id",
+              "value": "={{ $json.body.conversation.id }}",
+              "type": "number"
+            },
+            {
+              "id": "account_id",
+              "name": "account_id",
+              "value": "={{ $json.body.account.id }}",
+              "type": "number"
+            },
+            {
+              "id": "sender_name",
+              "name": "sender_name",
+              "value": "={{ $json.body.sender.name }}",
+              "type": "string"
+            },
+            {
+              "id": "first_name",
+              "name": "first_name",
+              "value": "={{ $json.body.sender.name.split(' ')[0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "extrai-dados",
+      "name": "Extrai dados",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [520, 200]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "resposta",
+              "name": "resposta",
+              "value": "=Olá {{ $json.first_name }}! 👋\n\nObrigado por entrar em contato com a Recife Flats Temporada.\n\nRecebemos sua mensagem: \"{{ $json.message }}\"\n\nEm breve um de nossos atendentes irá te responder.",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "monta-resposta",
+      "name": "Monta resposta",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [780, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://chat.recifeflatstemporada.com/api/v1/accounts/{{ $json.account_id }}/conversations/{{ $json.conversation_id }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"content\": {{ JSON.stringify($json.resposta) }},\n  \"message_type\": \"outgoing\",\n  \"private\": false\n}",
+        "options": {}
+      },
+      "id": "responde-chatwoot",
+      "name": "Responde no Chatwoot",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1040, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_ME",
+          "name": "Chatwoot API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Chatwoot": {
+      "main": [
+        [
+          {
+            "node": "Só mensagem do cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Só mensagem do cliente": {
+      "main": [
+        [
+          {
+            "node": "Extrai dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrai dados": {
+      "main": [
+        [
+          {
+            "node": "Monta resposta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Monta resposta": {
+      "main": [
+        [
+          {
+            "node": "Responde no Chatwoot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}
