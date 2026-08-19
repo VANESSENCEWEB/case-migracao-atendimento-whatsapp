@@ -96,9 +96,8 @@ brasileira proprietária. Apesar de funcional, o sistema apresentava:
 | 04 | Integração Meta WhatsApp Cloud API | ✅ Concluída | [04-meta-cloud-api/](./04-meta-cloud-api/) |
 | 05 | ⭐ Bug do "9" móvel brasileiro | ✅ Resolvido | [05-bug-9-movel/](./05-bug-9-movel/) |
 | 06 | ⭐ Recuperação de acesso 2FA | ✅ Resolvido | [06-recuperacao-2fa/](./06-recuperacao-2fa/) |
-| 07 | Estruturação do atendimento | 🟡 Em andamento | _em construção_ |
-| 08 | Automações via n8n | 🔵 Planejada | _roadmap_ |
-| 09 | Migração final + descomissionamento | 🔵 Planejada | _roadmap_ |
+| 07 | Automação do atendimento (n8n) | 🟢 Em produção | [veja a pasta](./07-automacao-n8n/) |
+| 08 | Migração final + descomissionamento | 🔵 Planejada | _roadmap_ |
 
 **Legenda:** ✅ Concluída · 🟡 Em andamento · 🔵 Planejada
 
